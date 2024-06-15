@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COUNTRIES</title>
+  <style>
+    .wrapper {
+      display: inline-flex;
+      flex-direction: column;
+    }
+
+    button {
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+      position: relative;
+      border: 0;
+      font-size: 20px;
+      font-weight: bold;
+      color: #fff;
+      text-transform: uppercase;
+      padding: 20px 25px;
+      background: #93ef87;
+      border: 2px solid #85b187;
+      border-radius: 10px;
+      transition: transform 0.15s;
+      transform-style: preserve-3d;
+      margin-bottom: 30px;
+    }
+
+    button::before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #c5facd;
+      border-radius: inherit;
+      box-shadow: 0 0 0 2px #85b187, 0 0.625em 0 0 #e2ffe2;
+      transform: translate3d(0, 10px, -5px);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    button:hover {
+      background: #77d16b;
+      transform: translate(0, 5px);
+    }
+
+    button:hover::before {
+      box-shadow: 0 0 0 2px #89b185, 0 0.5em 0 0 #e2ffe2;
+      transform: translate3d(0, 5px, -10px);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <button type="button" onclick="addUserCountry()">Ввод информации о стране</button>
+    <button type="button" onclick="infoAboutCountry()">Получение информации о стране</button>
+    <button type="button" onclick="allCountries()">Перечень всех стран</button>
+    <button type="button" onclick="removeUserCountry()">Удаление информации о стране</button>
+  </div>
+  <script src="countries.js"></script>
+  <script>
+    var countrysH = {};
+    addCountry('Германия', 'Берлин');
+    addCountry('Венгрия', 'Будапешт');
+    addCountry('Франция', 'Париж');
+    console.log("список стран:" + listCountrys());
+  </script>
+</body>
+
+</html>
